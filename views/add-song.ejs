@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("_head") %>
+</head>
+<body>
+
+  <%- include("_header") %> 
+
+  <div class="container">
+    <h2 class="nome">Adding Song</h2>
+    <p>Que bom que você quer contribuir com nossa comunidade!!
+      Adicione uma música especificando nome , imagem (capa do álbum), ano de lançamento e banda.
+      Obrigada pela contribuição!!
+    </p>
+
+    <!-- FORMULÁRIO HTML -->
+    <form action="/save-song" method="post" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name" aria-describedby="nome da música" required>
+      </div>
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input type="file" multiple="true" class="form-control" name="image" aria-describedby="imagem da música" accept="image/*" required>
+      </div>
+      <div class="mb-3">
+        <label for="year" class="form-label">Year</label>
+        <input type="text" class="form-control" name="year" aria-describedby="ano da música" required>
+      </div>
+      <div class="mb-3">
+        <label for="duration" class="form-label">Duration</label>
+        <input type="text" class="form-control" name="duration" aria-describedby="duração da música" required>
+      </div>
+      <div class="mb-3">
+        <label for="bandyId" class="form-label">Bands</label>
+        <select class="form-select" name="bandId" aria-label="Selecionar a banda da música">
+          <option selected>- Select the band</option>
+          <% bands.forEach(band => { %>
+            <option value="<%= band.id %>"><%= band.name %></option>
+          <% }) %> 
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+
+  </div>
+  <footer class="footer">
+    <p>
+      <a href="https://www.instagram.com/tabernadometal/">@tabernadometal </a>
+    </p>
+    
+  </footer>
+  
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+
+<div class="menu">
+  <img src="/images/rock.jpg" class="logo" alt="Logo">
+
+  <p>METAL BLOG</p>
+  <% const links = [{href: "/songs", label : "Songs"}, 
+                    {href: "/", label : "Bands"},
+                    {href: "/add-song", label : "Add Song"}] %>
+  <% for (let i = 0; i < links.length; i++) { %>
+    <a class = "links" href="<%= links[i].href %>"><%= links[i].label %></a>
+  <% } %> 
+</div>
